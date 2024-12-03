@@ -1,0 +1,5 @@
+﻿<Solution>
+  <Project Path="Day1\Day1.csproj" Type="Classic C#" />
+  <Project Path="Day2\Day2.csproj" Type="Classic C#" />
+  <Project Path="SharedLib\SharedLib.csproj" Type="Classic C#" />
+</Solution>
