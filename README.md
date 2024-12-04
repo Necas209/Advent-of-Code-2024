@@ -2,10 +2,11 @@
 
 Source code for the [2024 edition of Advent of Code](https://adventofcode.com/2024).
 
-The solutions are written in C# 13 (.NET 9). To run a solution, use the following command:
+The solutions are written in C# 13 (.NET 9). To run a solution for a specific day, navigate to the corresponding
+directory and run the following command (where `XX` is the day number):
 
 ```bash
-dotnet run DayX/.
+cd DayXX && dotnet run
 ```
 
 ## Progress
@@ -14,6 +15,7 @@ dotnet run DayX/.
 |----:|:--------:|:--------:|
 |   1 |    ⭐     |    ⭐     |
 |   2 |    ⭐     |    ⭐     |
+|   3 |    ⭐     |    ⭐     |
 
 ## License
 
