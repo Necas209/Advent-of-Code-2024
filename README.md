@@ -6,7 +6,7 @@ The solutions are written in C# 13 (.NET 9). To run a solution for a specific da
 directory and run the following command (where `XX` is the day number):
 
 ```bash
-cd DayXX && dotnet run
+cd src/DayXX && dotnet run && cd -
 ```
 
 ## Progress
