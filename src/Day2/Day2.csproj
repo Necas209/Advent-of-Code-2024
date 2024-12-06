@@ -11,4 +11,8 @@
         <ProjectReference Include="..\SharedLib\SharedLib.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MSTest" Version="3.6.4" />
+    </ItemGroup>
+
 </Project>
