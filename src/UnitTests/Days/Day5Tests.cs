@@ -1,9 +1,9 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Day5;
 
-namespace Day5;
+namespace UnitTests.Days;
 
 [TestClass]
-public class ChallengesTests
+public class Day5Tests
 {
     private string _testFilePath = null!;
 

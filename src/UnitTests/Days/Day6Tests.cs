@@ -1,9 +1,9 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Day6;
 
-namespace Day6;
+namespace UnitTests.Days;
 
 [TestClass]
-public class ChallengesTests
+public class Day6Tests
 {
     [TestMethod]
     public void TestFirstChallenge()
@@ -20,10 +20,10 @@ public class ChallengesTests
                            #.........
                            ......#...
                            """;
-        
+
         Assert.AreEqual(41, Challenges.FirstChallenge(map));
     }
-    
+
     [TestMethod]
     public void TestSecondChallenge()
     {
@@ -39,7 +39,7 @@ public class ChallengesTests
                            #.........
                            ......#...
                            """;
-        
+
         Assert.AreEqual(6, Challenges.SecondChallenge(map));
     }
 }

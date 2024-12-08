@@ -1,9 +1,9 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Day3;
 
-namespace Day3;
+namespace UnitTests.Days;
 
 [TestClass]
-public class ChallengesTests
+public class Day3Tests
 {
     [TestMethod]
     public void TestFirstChallenge()
@@ -11,7 +11,7 @@ public class ChallengesTests
         const string test = "xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))";
         Assert.AreEqual(161, Challenges.FirstChallenge(test));
     }
-    
+
     [TestMethod]
     public void TestSecondChallenge()
     {

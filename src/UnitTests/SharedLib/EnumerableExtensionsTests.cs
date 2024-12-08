@@ -1,7 +1,7 @@
 using System.Collections.Immutable;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SharedLib;
 
-namespace SharedLib;
+namespace UnitTests.SharedLib;
 
 [TestClass]
 public class EnumerableExtensionsTests

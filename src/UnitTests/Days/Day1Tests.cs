@@ -1,9 +1,7 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace Day1;
+namespace UnitTests.Days;
 
 [TestClass]
-public class ChallengesTests
+public class Day1Tests
 {
     private string _testFilePath = null!;
 
@@ -21,18 +19,18 @@ public class ChallengesTests
         _testFilePath = Path.GetTempFileName();
         File.WriteAllText(_testFilePath, test);
     }
-    
+
     [TestMethod]
     public void TestFirstChallenge()
     {
-        var data = Challenges.ProcessData(_testFilePath);
-        Assert.AreEqual(11, Challenges.FirstChallenge(data));
+        var data = Day1.Challenges.ProcessData(_testFilePath);
+        Assert.AreEqual(11, Day1.Challenges.FirstChallenge(data));
     }
-    
+
     [TestMethod]
     public void TestSecondChallenge()
     {
-        var data = Challenges.ProcessData(_testFilePath);
-        Assert.AreEqual(31, Challenges.SecondChallenge(data));
+        var data = Day1.Challenges.ProcessData(_testFilePath);
+        Assert.AreEqual(31, Day1.Challenges.SecondChallenge(data));
     }
 }

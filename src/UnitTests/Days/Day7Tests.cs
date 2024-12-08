@@ -1,9 +1,9 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Day7;
 
-namespace Day7;
+namespace UnitTests.Days;
 
 [TestClass]
-public class ChallengesTests
+public class Day7Tests
 {
     [TestMethod]
     public void TestFirstChallenge()

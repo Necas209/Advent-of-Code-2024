@@ -1,9 +1,9 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Day4;
 
-namespace Day4;
+namespace UnitTests.Days;
 
 [TestClass]
-public class WordSearchTests
+public class Day4Tests
 {
     [TestMethod]
     public void TestCountWord()
