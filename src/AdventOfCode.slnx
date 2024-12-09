@@ -12,6 +12,7 @@
   <Project Path="Day6\Day6.csproj" Type="Classic C#" />
   <Project Path="Day7\Day7.csproj" Type="Classic C#" />
   <Project Path="Day8\Day8.csproj" Type="Classic C#" />
+  <Project Path="Day9\Day9.csproj" Type="Classic C#" />
   <Project Path="SharedLib\SharedLib.csproj" Type="Classic C#" />
   <Project Path="UnitTests\UnitTests.csproj" Type="Classic C#" />
 </Solution>
