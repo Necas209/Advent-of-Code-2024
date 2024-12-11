@@ -1,3 +1,5 @@
+using SharedLib;
+
 namespace Day11;
 
 public class Challenge(int maxBlinks)
@@ -28,10 +30,10 @@ public class Challenge(int maxBlinks)
             return stoneCount;
         }
 
-        var numDigits = (int)Math.Floor(Math.Log10(stone) + 1);
+        var numDigits = stone.NumberOfDigits();
         if (numDigits % 2 == 0)
         {
-            var (left, right) = SplitNumber(stone, numDigits);
+            var (left, right) = stone.SplitNumber();
             stoneCount += GetStoneCount(left, blinks);
             stoneCount += GetStoneCount(right, blinks);
             return stoneCount;
@@ -41,15 +43,5 @@ public class Challenge(int maxBlinks)
         // Memoize the result
         _memo[(stone, blinks)] = stoneCount;
         return stoneCount;
-    }
-    
-    private static (long Left, long Right) SplitNumber(long number, int numDigits)
-    {
-        var halfDigits = numDigits / 2;
-        var divisor = (long)Math.Pow(10, halfDigits);
-        
-        var leftPart = number / divisor;
-        var rightPart = number % divisor;
-        return (leftPart, rightPart);
     }
 }
