@@ -25,7 +25,8 @@ cd src/DayXX && dotnet run && cd -
 |  10 |    ⭐     |    ⭐     |
 |  11 |    ⭐     |    ⭐     |
 |  12 |    ⭐     |    ⭐     |
+|  13 |    ⭐     |    ⭐     |
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
