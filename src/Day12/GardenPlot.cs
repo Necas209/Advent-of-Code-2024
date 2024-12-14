@@ -10,9 +10,23 @@ public class GardenPlot(ImmutableHashSet<Point> plot)
 
     public int GetPerimeter()
     {
-        return plot
-            .Sum(position => position.GetNeighbors()
-                .Count(neighbor => !plot.Contains(neighbor)));
+        var perimeter = 0;
+        foreach (var neighbors in plot.Select(cell => cell.GetNeighbors()))
+        {
+            if (!plot.Contains(neighbors.Top))
+                perimeter++;
+
+            if (!plot.Contains(neighbors.Bottom))
+                perimeter++;
+
+            if (!plot.Contains(neighbors.Left))
+                perimeter++;
+
+            if (!plot.Contains(neighbors.Right))
+                perimeter++;
+        }
+
+        return perimeter;
     }
 
     public int GetNumberOfSides()

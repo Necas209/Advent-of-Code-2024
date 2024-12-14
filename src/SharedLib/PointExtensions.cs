@@ -4,11 +4,12 @@ namespace SharedLib;
 
 public static class PointExtensions
 {
-    public static IEnumerable<Point> GetNeighbors(this Point point)
+    public static (Point Left, Point Right, Point Top, Point Bottom) GetNeighbors(this Point point)
     {
-        yield return point with { X = point.X - 1 };
-        yield return point with { X = point.X + 1 };
-        yield return point with { Y = point.Y - 1 };
-        yield return point with { Y = point.Y + 1 };
+        var left = point with { X = point.X - 1 };
+        var right = point with { X = point.X + 1 };
+        var top = point with { Y = point.Y - 1 };
+        var bottom = point with { Y = point.Y + 1 };
+        return (left, right, top, bottom);
     }
 }

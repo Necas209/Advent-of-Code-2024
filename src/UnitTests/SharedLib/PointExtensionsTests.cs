@@ -1,4 +1,3 @@
-using System.Collections.Immutable;
 using System.Drawing;
 using SharedLib;
 
@@ -11,12 +10,11 @@ public class PointExtensionsTests
     public void TestGetNeighbors()
     {
         var point = new Point(0, 0);
-        var neighbors = point.GetNeighbors().ToImmutableArray();
-
-        Assert.AreEqual(4, neighbors.Length);
-        Assert.IsTrue(neighbors.Contains(new Point(-1, 0)));
-        Assert.IsTrue(neighbors.Contains(new Point(1, 0)));
-        Assert.IsTrue(neighbors.Contains(new Point(0, -1)));
-        Assert.IsTrue(neighbors.Contains(new Point(0, 1)));
+        var (left, right, top, bottom) = point.GetNeighbors();
+        
+        Assert.AreEqual(new Point(-1, 0), left);
+        Assert.AreEqual(new Point(1, 0), right);
+        Assert.AreEqual(new Point(0, -1), top);
+        Assert.AreEqual(new Point(0, 1), bottom);
     }
 }

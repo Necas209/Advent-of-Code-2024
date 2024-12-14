@@ -63,12 +63,23 @@ public class GardenPlotMap
             region.Add(current);
 
             // Add neighbors to the queue
-            foreach (var neighbor in current.GetNeighbors().Where(Contains))
+            var (left, right, top, bottom) = current.GetNeighbors();
+            if (Contains(left) && !visited.Contains(left))
             {
-                if (!visited.Contains(neighbor))
-                {
-                    queue.Enqueue(neighbor);
-                }
+                queue.Enqueue(left);
+            }
+            
+            if (Contains(right) && !visited.Contains(right))
+            {
+                queue.Enqueue(right);
+            }
+            if (Contains(top) && !visited.Contains(top))
+            {
+                queue.Enqueue(top);
+            }
+            if (Contains(bottom) && !visited.Contains(bottom))
+            {
+                queue.Enqueue(bottom);
             }
         }
 
