@@ -17,30 +17,23 @@ public class GardenPlot(ImmutableHashSet<Point> plot)
 
     public int GetNumberOfSides()
     {
-        // Get the boundaries of the plot
-        var boundaries = plot
-            .Where(cell => cell.GetNeighbors().Any(neighbor => !plot.Contains(neighbor)))
-            .OrderBy(point => point.X)
-            .ThenBy(point => point.Y)
-            .ToImmutableArray();
-
         // Keep track of the visited boundaries and their side locations
         var visited = new Dictionary<Point, SideLocation>();
         var numberOfSides = 0;
 
-        foreach (var boundary in boundaries)
+        foreach (var cell in plot.OrderBy(c => c.X).ThenBy(c => c.Y))
         {
             var boundarySideLocation = default(SideLocation);
 
-            // Check each side of the boundary
+            // Check each side of the cell
             foreach (var location in Enum.GetValues<SideLocation>())
             {
                 var sidePoint = location switch
                 {
-                    SideLocation.Top => boundary with { Y = boundary.Y - 1 },
-                    SideLocation.Bottom => boundary with { Y = boundary.Y + 1 },
-                    SideLocation.Left => boundary with { X = boundary.X - 1 },
-                    SideLocation.Right => boundary with { X = boundary.X + 1 },
+                    SideLocation.Top => cell with { Y = cell.Y - 1 },
+                    SideLocation.Bottom => cell with { Y = cell.Y + 1 },
+                    SideLocation.Left => cell with { X = cell.X - 1 },
+                    SideLocation.Right => cell with { X = cell.X + 1 },
                     _ => throw new ArgumentOutOfRangeException(nameof(location), location, null)
                 };
 
@@ -54,10 +47,10 @@ public class GardenPlot(ImmutableHashSet<Point> plot)
                 // Check if the side has already been visited
                 var firstNeighbor = location switch
                 {
-                    SideLocation.Top => boundary with { X = boundary.X - 1 },
-                    SideLocation.Bottom => boundary with { X = boundary.X + 1 },
-                    SideLocation.Left => boundary with { Y = boundary.Y - 1 },
-                    SideLocation.Right => boundary with { Y = boundary.Y + 1 },
+                    SideLocation.Top => cell with { X = cell.X - 1 },
+                    SideLocation.Bottom => cell with { X = cell.X + 1 },
+                    SideLocation.Left => cell with { Y = cell.Y - 1 },
+                    SideLocation.Right => cell with { Y = cell.Y + 1 },
                     _ => throw new ArgumentOutOfRangeException(nameof(location), location, null)
                 };
 
@@ -66,10 +59,10 @@ public class GardenPlot(ImmutableHashSet<Point> plot)
 
                 var secondNeighbor = location switch
                 {
-                    SideLocation.Top => boundary with { X = boundary.X + 1 },
-                    SideLocation.Bottom => boundary with { X = boundary.X - 1 },
-                    SideLocation.Left => boundary with { Y = boundary.Y + 1 },
-                    SideLocation.Right => boundary with { Y = boundary.Y - 1 },
+                    SideLocation.Top => cell with { X = cell.X + 1 },
+                    SideLocation.Bottom => cell with { X = cell.X - 1 },
+                    SideLocation.Left => cell with { Y = cell.Y + 1 },
+                    SideLocation.Right => cell with { Y = cell.Y - 1 },
                     _ => throw new ArgumentOutOfRangeException(nameof(location), location, null)
                 };
 
@@ -80,7 +73,7 @@ public class GardenPlot(ImmutableHashSet<Point> plot)
                 numberOfSides++;
             }
 
-            visited.Add(boundary, boundarySideLocation);
+            visited.Add(cell, boundarySideLocation);
         }
 
         return numberOfSides;

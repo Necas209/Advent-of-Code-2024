@@ -30,8 +30,7 @@ public class Challenge(int maxBlinks)
             return stoneCount;
         }
 
-        var numDigits = stone.NumberOfDigits();
-        if (numDigits % 2 == 0)
+        if (stone.NumberOfDigits() % 2 == 0)
         {
             var (left, right) = stone.SplitNumber();
             stoneCount += GetStoneCount(left, blinks);
