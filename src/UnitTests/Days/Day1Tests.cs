@@ -21,16 +21,16 @@ public class Day1Tests
     }
 
     [TestMethod]
-    public void TestFirstChallenge()
+    public void TestPart1()
     {
         var data = Day1.Challenges.ProcessData(_testFilePath);
-        Assert.AreEqual(11, Day1.Challenges.FirstChallenge(data));
+        Assert.AreEqual(11, Day1.Challenges.Part1(data));
     }
 
     [TestMethod]
-    public void TestSecondChallenge()
+    public void TestPart2()
     {
         var data = Day1.Challenges.ProcessData(_testFilePath);
-        Assert.AreEqual(31, Day1.Challenges.SecondChallenge(data));
+        Assert.AreEqual(31, Day1.Challenges.Part2(data));
     }
 }

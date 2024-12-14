@@ -10,7 +10,7 @@ public static partial class Challenges
     [GeneratedRegex(@"(do\(\))|(don't\(\))|(mul\((?<first>\d+),(?<second>\d+)\))")]
     private static partial Regex DoDontMulRegex();
 
-    public static int FirstChallenge(string content)
+    public static int Part1(string content)
     {
         var mulMatches = MulRegex().Matches(content);
 
@@ -26,7 +26,7 @@ public static partial class Challenges
         return sum;
     }
 
-    public static int SecondChallenge(string content)
+    public static int Part2(string content)
     {
         var mulMatches = DoDontMulRegex().Matches(content);
 

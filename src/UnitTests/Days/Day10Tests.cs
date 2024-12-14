@@ -6,7 +6,7 @@ namespace UnitTests.Days;
 public class Day10Tests
 {
     [TestMethod]
-    public void TestFirstChallenge()
+    public void TestPart1()
     {
         const string test = """
                             89010123
@@ -19,11 +19,11 @@ public class Day10Tests
                             10456732
                             """;
 
-        Assert.AreEqual(36, Challenges.FirstChallenge(test));
+        Assert.AreEqual(36, Challenges.Part1(test));
     }
     
     [TestMethod]
-    public void TestSecondChallenge()
+    public void TestPart2()
     {
         const string test = """
                             89010123
@@ -36,6 +36,6 @@ public class Day10Tests
                             10456732
                             """;
 
-        Assert.AreEqual(81, Challenges.SecondChallenge(test));
+        Assert.AreEqual(81, Challenges.Part2(test));
     }
 }

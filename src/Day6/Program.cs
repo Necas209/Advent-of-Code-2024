@@ -3,10 +3,10 @@ using Day6;
 
 var input = File.ReadAllText("input.txt");
 
-Console.WriteLine($"First challenge: {Challenges.FirstChallenge(input)}");
+Console.WriteLine($"First challenge: {Challenges.Part1(input)}");
 
 var start = Stopwatch.GetTimestamp();
-var result = Challenges.SecondChallenge(input);
+var result = Challenges.Part2(input);
 var end = Stopwatch.GetTimestamp();
 
 Console.WriteLine($"Second challenge: {result}");

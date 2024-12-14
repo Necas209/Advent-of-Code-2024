@@ -2,7 +2,7 @@ namespace Day9;
 
 public static class Challenges
 {
-    public static long FirstChallenge(string input)
+    public static long Part1(string input)
     {
         var disk = new Disk(input);
 
@@ -19,7 +19,7 @@ public static class Challenges
         return disk.GetChecksum();
     }
 
-    public static long SecondChallenge(string input)
+    public static long Part2(string input)
     {
         var disk = new Disk(input);
 

@@ -4,7 +4,7 @@ namespace Day6;
 
 public static class Challenges
 {
-    public static int FirstChallenge(string input)
+    public static int Part1(string input)
     {
         var map = new Map(input);
         var guard = map.FindGuard();
@@ -32,7 +32,7 @@ public static class Challenges
         return map.Count(x => x == Map.Visited);
     }
 
-    public static int SecondChallenge(string input)
+    public static int Part2(string input)
     {
         var map = new Map(input);
         var initialGuard = map.FindGuard();

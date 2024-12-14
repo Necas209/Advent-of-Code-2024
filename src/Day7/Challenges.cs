@@ -4,9 +4,9 @@ namespace Day7;
 
 public static class Challenges
 {
-    public static long FirstChallenge(string input) => Challenge(input, false);
+    public static long Part1(string input) => Challenge(input, false);
 
-    public static long SecondChallenge(string input) =>
+    public static long Part2(string input) =>
         Challenge(input, true);
 
     private static long Challenge(string input, bool concatenate)

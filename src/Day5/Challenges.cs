@@ -27,14 +27,14 @@ public static class Challenges
         return new ChallengeData(rules, updates);
     }
 
-    public static int FirstChallenge(ChallengeData data)
+    public static int Part1(ChallengeData data)
     {
         return data.Updates
             .Where(update => IsValid(data.Rules, update))
             .Sum(update => update[update.Length / 2]);
     }
 
-    public static int SecondChallenge(ChallengeData data)
+    public static int Part2(ChallengeData data)
     {
         return data.Updates
             .Where(update => !IsValid(data.Rules, update))

@@ -6,7 +6,7 @@ namespace UnitTests.Days;
 public class Day12Tests
 {
     [TestMethod]
-    public void TestFirstChallenge()
+    public void TestPart1()
     {
         const string input = """
                              RRRRIICCFF
@@ -21,11 +21,11 @@ public class Day12Tests
                              MMMISSJEEE
                              """;
 
-        Assert.AreEqual(1930, Challenges.FirstChallenge(input));
+        Assert.AreEqual(1930, Challenges.Part1(input));
     }
     
     [TestMethod]
-    public void TestSecondChallenge()
+    public void TestPart2()
     {
         const string input = """
                              RRRRIICCFF
@@ -40,6 +40,6 @@ public class Day12Tests
                              MMMISSJEEE
                              """;
 
-        Assert.AreEqual(1206, Challenges.SecondChallenge(input));
+        Assert.AreEqual(1206, Challenges.Part2(input));
     }
 }

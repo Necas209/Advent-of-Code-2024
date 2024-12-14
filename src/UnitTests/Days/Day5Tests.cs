@@ -45,16 +45,16 @@ public class Day5Tests
     }
 
     [TestMethod]
-    public void TestFirstChallenge()
+    public void TestPart1()
     {
         var testData = Challenges.ProcessData(_testFilePath);
-        Assert.AreEqual(143, Challenges.FirstChallenge(testData));
+        Assert.AreEqual(143, Challenges.Part1(testData));
     }
     
     [TestMethod]
-    public void TestSecondChallenge()
+    public void TestPart2()
     {
         var testData = Challenges.ProcessData(_testFilePath);
-        Assert.AreEqual(123, Challenges.SecondChallenge(testData));
+        Assert.AreEqual(123, Challenges.Part2(testData));
     }
 }

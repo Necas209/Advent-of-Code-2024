@@ -22,7 +22,7 @@ public static class Challenges
         return new Data([..left], [..right]);
     }
 
-    public static int FirstChallenge(Data data)
+    public static int Part1(Data data)
     {
         var left = data.Left.Sort();
         var right = data.Right.Sort();
@@ -34,7 +34,7 @@ public static class Challenges
         return totalDistance;
     }
 
-    public static int SecondChallenge(Data data)
+    public static int Part2(Data data)
     {
         var (left, right) = data;
         var leftCount = left

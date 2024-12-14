@@ -8,9 +8,9 @@ public static partial class Challenges
         @"Button A: X\+(?<aX>\d+), Y\+(?<aY>\d+)\s+Button B: X\+(?<bX>\d+), Y\+(?<bY>\d+)\s+Prize: X=(?<pX>\d+), Y=(?<pY>\d+)")]
     private static partial Regex ClawMachineRegex();
 
-    public static long FirstChallenge(string input) => Challenge(input, false);
+    public static long Part1(string input) => Challenge(input, false);
 
-    public static long SecondChallenge(string input) => Challenge(input, true);
+    public static long Part2(string input) => Challenge(input, true);
 
     private static long Challenge(string input, bool prizeAdjustment)
     {

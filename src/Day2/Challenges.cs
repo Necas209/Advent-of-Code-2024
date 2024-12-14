@@ -24,14 +24,14 @@ public static class Challenges
         ];
     }
 
-    public static int FirstChallenge(ImmutableArray<ImmutableArray<int>> reports)
+    public static int Part1(ImmutableArray<ImmutableArray<int>> reports)
     {
         return reports
             .Select(report => GetSafety(report))
             .Count(overallSafety => overallSafety is not LevelSafety.Stagnant);
     }
 
-    public static int SecondChallenge(ImmutableArray<ImmutableArray<int>> reports)
+    public static int Part2(ImmutableArray<ImmutableArray<int>> reports)
     {
         return reports
             .Select(report => Enumerable.Range(0, report.Length)

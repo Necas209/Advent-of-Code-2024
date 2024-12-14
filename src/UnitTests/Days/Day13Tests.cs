@@ -6,7 +6,7 @@ namespace UnitTests.Days;
 public class Day13Tests
 {
     [TestMethod]
-    public void TestFirstChallenge()
+    public void TestPart1()
     {
         const string input = """
                              Button A: X+94, Y+34
@@ -26,6 +26,6 @@ public class Day13Tests
                              Prize: X=18641, Y=10279
                              """;
         
-        Assert.AreEqual(480, Challenges.FirstChallenge(input));
+        Assert.AreEqual(480, Challenges.Part1(input));
     }
 }

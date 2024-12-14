@@ -7,7 +7,7 @@ namespace Day8;
 
 public static class Challenges
 {
-    public static int FirstChallenge(string input)
+    public static int Part1(string input)
     {
         var map = new Map(input);
 
@@ -23,7 +23,7 @@ public static class Challenges
         return antiNodes.Count;
     }
 
-    public static int SecondChallenge(string input)
+    public static int Part2(string input)
     {
         var map = new Map(input);
 
