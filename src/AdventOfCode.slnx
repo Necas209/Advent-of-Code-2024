@@ -9,6 +9,7 @@
   <Project Path="Day12\Day12.csproj" Type="Classic C#" />
   <Project Path="Day13\Day13.csproj" Type="Classic C#" />
   <Project Path="Day14\Day14.csproj" Type="Classic C#" />
+  <Project Path="Day15\Day15.csproj" Type="Classic C#" />
   <Project Path="Day1\Day1.csproj" Type="Classic C#" />
   <Project Path="Day2\Day2.csproj" Type="Classic C#" />
   <Project Path="Day3\Day3.csproj" Type="Classic C#" />
