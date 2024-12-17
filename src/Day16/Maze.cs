@@ -5,6 +5,15 @@ namespace Day16;
 
 public class Maze
 {
+    private static readonly ImmutableDictionary<Size, Orientation> Directions =
+        new Dictionary<Size, Orientation>
+        {
+            { new Size(0, -1), Orientation.Up },
+            { new Size(0, 1), Orientation.Down },
+            { new Size(-1, 0), Orientation.Left },
+            { new Size(1, 0), Orientation.Right }
+        }.ToImmutableDictionary();
+
     private readonly int _width;
     private readonly int _height;
     private readonly char[,] _maze;
@@ -65,20 +74,12 @@ public class Maze
 
     public IEnumerable<ImmutableArray<Point>> FindAllPaths()
     {
-        ImmutableArray<(Size Direction, Orientation Orientation)> directions =
-        [
-            (new Size(0, -1), Orientation.Up),
-            (new Size(0, 1), Orientation.Down),
-            (new Size(-1, 0), Orientation.Left),
-            (new Size(1, 0), Orientation.Right)
-        ];
-
         var priorityQueue = new SortedSet<(int Cost, Reindeer Reindeer)>(
-            Comparer<(int, Reindeer)>.Create(
+            Comparer<(int Cost, Reindeer Reindeer)>.Create(
                 (a, b) =>
-                    a.Item1 != b.Item1
-                        ? a.Item1.CompareTo(b.Item1)
-                        : a.Item2.CompareTo(b.Item2)
+                    a.Cost != b.Cost
+                        ? a.Cost.CompareTo(b.Cost)
+                        : a.Reindeer.CompareTo(b.Reindeer)
             )
         );
 
@@ -106,7 +107,7 @@ public class Maze
             }
 
             // Explore all possible moves
-            foreach (var (move, newDirection) in directions)
+            foreach (var (move, newDirection) in Directions)
             {
                 var newPosition = currentReindeer.Position + move;
                 if (!IsVisitable(newPosition))
@@ -114,18 +115,17 @@ public class Maze
 
                 var moveCost = newDirection == currentReindeer.Orientation ? 1 : 1001;
                 var newCost = currentCost + moveCost;
-
                 var newState = new Reindeer(newPosition, newDirection);
 
                 // If the state is unvisited, or we found an equal-cost path
-                if (!stateInfo.TryGetValue(newState, out var value))
+                if (!stateInfo.TryGetValue(newState, out var parentsState))
                 {
                     stateInfo[newState] = (newCost, [currentReindeer]);
-                    priorityQueue.Add((newCost, new Reindeer(newPosition, newDirection)));
+                    priorityQueue.Add((newCost, newState));
                 }
-                else if (value.Cost == newCost)
+                else if (parentsState.Cost == newCost)
                 {
-                    value.Parents.Add(currentReindeer);
+                    parentsState.Parents.Add(currentReindeer);
                 }
             }
         }
@@ -140,31 +140,10 @@ public class Maze
         foreach (var position in path.Skip(1))
         {
             var move = new Size(position.X - previousPosition.X, position.Y - previousPosition.Y);
-            if (move == new Size(0, -1))
-            {
-                cost += direction == Orientation.Up ? 1 : 1000 + 1;
-                direction = Orientation.Up;
-            }
-            else if (move == new Size(0, 1))
-            {
-                cost += direction == Orientation.Down ? 1 : 1000 + 1;
-                direction = Orientation.Down;
-            }
-            else if (move == new Size(-1, 0))
-            {
-                cost += direction == Orientation.Left ? 1 : 1000 + 1;
-                direction = Orientation.Left;
-            }
-            else if (move == new Size(1, 0))
-            {
-                cost += direction == Orientation.Right ? 1 : 1000 + 1;
-                direction = Orientation.Right;
-            }
-            else
-            {
-                throw new InvalidOperationException("Invalid move");
-            }
+            var orientation = Directions[move];
 
+            cost += orientation == direction ? 1 : 1000 + 1;
+            direction = orientation;
             previousPosition = position;
         }
 

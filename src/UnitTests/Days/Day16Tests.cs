@@ -27,9 +27,8 @@ public class Day16Tests
                              ###############
                              """;
         
-        var maze = new Maze(input);
-        Assert.AreEqual(7036, Challenge.Part1(maze));
-        Assert.AreEqual(45, Challenge.Part2(maze));
+        Assert.AreEqual(7036, Challenge.Part1(input));
+        Assert.AreEqual(45, Challenge.Part2(input));
     }
 
     [TestMethod]
@@ -54,9 +53,8 @@ public class Day16Tests
                              #S#.............#
                              #################
                              """;
-        
-        var maze = new Maze(input);
-        Assert.AreEqual(11048, Challenge.Part1(maze));
-        Assert.AreEqual(64, Challenge.Part2(maze));
+
+        Assert.AreEqual(11048, Challenge.Part1(input));
+        Assert.AreEqual(64, Challenge.Part2(input));
     }
 }

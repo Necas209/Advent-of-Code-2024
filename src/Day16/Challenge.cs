@@ -4,22 +4,29 @@ namespace Day16;
 
 public static class Challenge
 {
-    public static int Part1(Maze maze)
+    public static int Part1(string input)
     {
+        var maze = new Maze(input);
+
         var optimalCost = maze.FindAllPaths()
             .Min(Maze.ComputeCost);
-        
+
         return optimalCost;
     }
 
-    public static int Part2(Maze maze)
+    public static int Part2(string input)
     {
+        var maze = new Maze(input);
+
         var allPaths = maze.FindAllPaths();
 
-        var uniqueCells = allPaths
+        var optimalPaths = allPaths
             .GroupBy(Maze.ComputeCost)
-            .First()
-            .SelectMany(x => x)
+            .OrderBy(g => g.Key)
+            .First();
+
+        var uniqueCells = optimalPaths
+            .SelectMany(path => path)
             .ToImmutableHashSet();
 
         return uniqueCells.Count;
