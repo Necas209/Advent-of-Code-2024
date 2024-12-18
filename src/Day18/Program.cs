@@ -3,9 +3,8 @@ using Day18;
 
 var input = File.ReadAllText("input.txt");
 
-var memorySize = new Size(71, 71);
-const int numFallenBytes = 1024;
+var challenge = new Challenge(input, new Size(71, 71), 1024);
 
-Console.WriteLine($"Part 1: {Challenge.Part1(input, memorySize, numFallenBytes)}");
+Console.WriteLine($"Part 1: {challenge.Part1()}");
 
-Console.WriteLine($"Part 2: {Challenge.Part2(input, memorySize)}");
+Console.WriteLine($"Part 2: {challenge.Part2()}");

@@ -3,18 +3,29 @@ using System.Drawing;
 
 namespace Day18;
 
-public static class Challenge
+public class Challenge
 {
-    public static int Part1(string input, Size memorySize, int numFallenBytes)
-    {
-        var fallenBytes = input
-            .Split(Environment.NewLine)
-            .Select(x => x.Split(','))
-            .Select(x => new Point(int.Parse(x[0]), int.Parse(x[1])))
-            .ToImmutableArray();
+    private readonly Size _memorySize;
+    private readonly int _numFallenBytes;
+    private readonly ImmutableArray<Point> _fallenBytes;
 
-        var memorySpace = new MemorySpace(memorySize, fallenBytes);
-        memorySpace.Corrupt(numFallenBytes);
+    public Challenge(string input, Size memorySize, int numFallenBytes)
+    {
+        _memorySize = memorySize;
+        _numFallenBytes = numFallenBytes;
+        _fallenBytes =
+        [
+            ..input
+                .Split(Environment.NewLine)
+                .Select(x => x.Split(','))
+                .Select(x => new Point(int.Parse(x[0]), int.Parse(x[1])))
+        ];
+    }
+
+    public int Part1()
+    {
+        var memorySpace = new MemorySpace(_memorySize, _fallenBytes);
+        memorySpace.Corrupt(_numFallenBytes);
 
         var bestPathLength = memorySpace
             .FindAllPaths()
@@ -23,25 +34,19 @@ public static class Challenge
         return bestPathLength;
     }
 
-    public static Point Part2(string input, Size memorySize)
+    public Point Part2()
     {
-        var fallenBytes = input
-            .Split(Environment.NewLine)
-            .Select(x => x.Split(','))
-            .Select(x => new Point(int.Parse(x[0]), int.Parse(x[1])))
-            .ToImmutableArray();
-        
-        var memorySpace = new MemorySpace(memorySize, fallenBytes);
+        var memorySpace = new MemorySpace(_memorySize, _fallenBytes);
 
-        var numFallenBytes = 1;
+        var numFallenBytes = _numFallenBytes;
         while (true)
         {
             memorySpace.Corrupt(numFallenBytes);
 
-            var hasPath = memorySpace.FindAllPaths().Any();
-            if (!hasPath)
+            var pathLength = memorySpace.FindFirstPath();
+            if (pathLength is null)
             {
-                return fallenBytes[numFallenBytes - 1];
+                return _fallenBytes[numFallenBytes - 1];
             }
 
             numFallenBytes++;

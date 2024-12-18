@@ -38,12 +38,12 @@ public class Day18Tests
                              """;
 
         var memorySize = new Size(7, 7);
-
         const int numFallenBytes = 12;
+        var challenge = new Challenge(input, memorySize, numFallenBytes);
 
-        Assert.AreEqual(22, Challenge.Part1(input, memorySize, numFallenBytes));
+        Assert.AreEqual(22, challenge.Part1());
 
         var expected = new Point(6, 1);
-        Assert.AreEqual(expected, Challenge.Part2(input, memorySize));
+        Assert.AreEqual(expected, challenge.Part2());
     }
 }

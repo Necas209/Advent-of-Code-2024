@@ -8,6 +8,14 @@ public class MemorySpace
     private readonly ImmutableArray<Point> _fallenBytes;
     private readonly char[,] _memorySpace;
 
+    private static readonly ImmutableArray<Size> Moves =
+    [
+        new(1, 0), // Move right
+        new(-1, 0), // Move left
+        new(0, 1), // Move down
+        new(0, -1) // Move up
+    ];
+
     public MemorySpace(Size size, ImmutableArray<Point> fallenBytes)
     {
         _fallenBytes = fallenBytes;
@@ -50,6 +58,44 @@ public class MemorySpace
         }
     }
 
+    public int? FindFirstPath()
+    {
+        var queue = new Queue<(Point Position, int Steps)>();
+        var visited = new HashSet<Point>();
+
+        var start = Point.Empty;
+        var end = new Point(Width - 1, Height - 1);
+
+        // Initialize BFS queue with the start position
+        queue.Enqueue((start, 0));
+        visited.Add(start);
+
+        while (queue.Count > 0)
+        {
+            var (current, steps) = queue.Dequeue();
+
+            // If we reached the end, return the number of steps
+            if (current == end)
+                return steps;
+
+            // Explore all possible moves
+            foreach (var move in Moves)
+            {
+                var newPosition = current + move;
+
+                // Skip invalid positions or already visited positions
+                if (!IsVisitable(newPosition) || visited.Contains(newPosition))
+                    continue;
+
+                queue.Enqueue((newPosition, steps + 1));
+                visited.Add(newPosition); // Mark as visited
+            }
+        }
+
+        // If no path was found, return null
+        return null;
+    }
+
     public IEnumerable<int> FindAllPaths()
     {
         var priorityQueue = new SortedSet<(int Cost, Point point)>(
@@ -63,12 +109,6 @@ public class MemorySpace
             )
         );
         var memo = new Dictionary<Point, int>();
-        var moves = ImmutableArray.Create(
-            new Size(1, 0),
-            new Size(-1, 0),
-            new Size(0, 1),
-            new Size(0, -1)
-        );
 
         // Initialize the queue with the start position
         var start = Point.Empty;
@@ -90,7 +130,7 @@ public class MemorySpace
             }
 
             // Explore all possible moves
-            foreach (var move in moves)
+            foreach (var move in Moves)
             {
                 var newPosition = currPos + move;
                 if (!IsVisitable(newPosition))
