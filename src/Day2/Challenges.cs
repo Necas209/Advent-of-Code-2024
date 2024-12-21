@@ -50,8 +50,7 @@ public static class Challenges
             {
                 -1 => LevelSafety.Increasing,
                 1 => LevelSafety.Decreasing,
-                0 => LevelSafety.Stagnant,
-                _ => throw new ArgumentOutOfRangeException()
+                _ => LevelSafety.Stagnant
             };
 
             if (Math.Abs(first - second) is < 1 or > 3)

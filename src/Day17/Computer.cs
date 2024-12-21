@@ -37,9 +37,8 @@ public class Computer(ImmutableArray<byte> program)
                 4 => regA,
                 5 => regB,
                 6 => regC,
-                7 => throw new InvalidOperationException(
-                    "Combo operand 7 is reserved and will not appear in valid programs."),
-                _ => throw new ArgumentOutOfRangeException(nameof(operand), operand, null)
+                _ => throw new InvalidOperationException(
+                    "Invalid combo operand. Combo operands must be in the range 0-6 (7 is reserved).")
             };
             switch (opCode)
             {
@@ -71,7 +70,7 @@ public class Computer(ImmutableArray<byte> program)
                     regC = regA >> (int)combo;
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(opCode), opCode, null);
+                    throw new InvalidOperationException("Invalid opcode.");
             }
 
             ip += 2;
@@ -92,7 +91,7 @@ public class Computer(ImmutableArray<byte> program)
 
         Debug.Assert(shiftPerCycle != 0);
         var bitsToCheck = shiftPerCycle + 8;
-        
+
         var memo = new ConcurrentDictionary<(long, int), ImmutableHashSet<long>>();
         var answers = FindNumber(0, 0).ToList();
 
