@@ -27,8 +27,7 @@ public class Day20Tests
                              """;
 
         var raceTrack = new RaceTrack(input);
-        var shortestPath = raceTrack.FindShortestPath();
-        Assert.AreEqual(84, shortestPath.Length - 1);
+        Assert.AreEqual(85, raceTrack.Path.Length);
 
         Assert.AreEqual(44, raceTrack.GetCheats(2));
         Assert.AreEqual(30, raceTrack.GetCheats(4));

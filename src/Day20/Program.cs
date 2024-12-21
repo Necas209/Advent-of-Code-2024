@@ -1,9 +1,20 @@
-﻿using Day20;
+﻿using System.Diagnostics;
+using Day20;
 
 var input = File.ReadAllText("input.txt");
 
 var raceTrack = new RaceTrack(input);
 
-Console.WriteLine($"Part 1: {raceTrack.GetCheats(100)}");
+var start = Stopwatch.GetTimestamp();
+var cheats = raceTrack.GetCheats(100);
+var end = Stopwatch.GetTimestamp();
 
-Console.WriteLine($"Part 2: {raceTrack.GetCheats(100, 20)}");
+Console.WriteLine($"Part 1: {cheats}");
+Console.WriteLine($"Elapsed time: {Stopwatch.GetElapsedTime(start, end).TotalMilliseconds}ms");
+
+start = Stopwatch.GetTimestamp();
+cheats = raceTrack.GetCheats(100, 20);
+end = Stopwatch.GetTimestamp();
+
+Console.WriteLine($"Part 2: {cheats}");
+Console.WriteLine($"Elapsed time: {Stopwatch.GetElapsedTime(start, end).TotalMilliseconds}ms");
