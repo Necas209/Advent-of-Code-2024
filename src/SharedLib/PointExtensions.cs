@@ -12,4 +12,9 @@ public static class PointExtensions
         var bottom = point with { Y = point.Y + 1 };
         return (left, right, top, bottom);
     }
+
+    public static int ManhattanDistance(this Point point, Point other)
+    {
+        return Math.Abs(point.X - other.X) + Math.Abs(point.Y - other.Y);
+    }
 }
