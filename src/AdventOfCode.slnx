@@ -18,6 +18,7 @@
   <Project Path="Day20\Day20.csproj" Type="Classic C#" />
   <Project Path="Day21\Day21.csproj" Type="Classic C#" />
   <Project Path="Day22\Day22.csproj" Type="Classic C#" />
+  <Project Path="Day23\Day23.csproj" Type="Classic C#" />
   <Project Path="Day2\Day2.csproj" Type="Classic C#" />
   <Project Path="Day3\Day3.csproj" Type="Classic C#" />
   <Project Path="Day4\Day4.csproj" Type="Classic C#" />

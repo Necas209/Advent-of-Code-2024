@@ -35,6 +35,7 @@ cd src/DayXX && dotnet run && cd -
 |  20 |    ⭐     |    ⭐     |
 |  21 |    ⭐     |    ⭐     |
 |  22 |    ⭐     |    ⭐     |
+|  23 |    ⭐     |    ⭐     |
 
 ## License
 
