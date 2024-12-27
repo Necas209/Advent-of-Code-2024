@@ -1,7 +1,7 @@
 using System.Collections.Immutable;
 using System.Drawing;
 using System.Text;
-using SharedLib;
+using DotNetExtensions;
 
 namespace Day21;
 

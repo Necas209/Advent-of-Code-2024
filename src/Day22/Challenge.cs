@@ -1,5 +1,5 @@
 using System.Collections.Immutable;
-using SharedLib;
+using DotNetExtensions;
 
 namespace Day22;
 

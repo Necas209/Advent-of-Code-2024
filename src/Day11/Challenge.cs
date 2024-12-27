@@ -1,4 +1,5 @@
-using SharedLib;
+
+using DotNetExtensions;
 
 namespace Day11;
 
