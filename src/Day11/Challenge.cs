@@ -1,5 +1,4 @@
-
-using DotNetExtensions;
+using DotNetExtensions.Core;
 
 namespace Day11;
 

@@ -1,7 +1,7 @@
 using System.Collections.Immutable;
 using System.Diagnostics;
 using System.Drawing;
-using DotNetExtensions;
+using DotNetExtensions.Collections;
 
 namespace Day8;
 

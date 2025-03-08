@@ -1,6 +1,6 @@
 using System.Collections.Immutable;
 using System.Drawing;
-using DotNetExtensions;
+using DotNetExtensions.Core;
 
 namespace Day20;
 

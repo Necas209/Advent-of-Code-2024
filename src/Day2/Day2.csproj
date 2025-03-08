@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="DotNetExtensions" Version="3.0.2" />
+      <PackageReference Include="DotNetExtensions" Version="5.0.0" />
     </ItemGroup>
 
 </Project>
